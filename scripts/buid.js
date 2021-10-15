@@ -1,26 +1,26 @@
 const { resolve } = require('path');
 const { writeFileSync, copyFileSync } = require('fs');
-const { spawn } = require('child_process')
+const { spawn } = require('child_process');
 
 async function build() {
   const child = spawn('yarn', ['build-webpack']);
 
-  let data = "";
+  let data = '';
   for await (const chunk of child.stdout) {
-    console.log('stdout chunk: '+chunk);
+    console.log('stdout chunk: ' + chunk);
     data += chunk;
   }
-  let error = "";
+  let error = '';
   for await (const chunk of child.stderr) {
-    console.error('stderr chunk: '+chunk);
+    console.error('stderr chunk: ' + chunk);
     error += chunk;
   }
-  const exitCode = await new Promise( resolve => {
+  const exitCode = await new Promise(resolve => {
     child.on('close', resolve);
   });
 
-  if( exitCode) {
-    throw new Error( `subprocess error exit ${exitCode}, ${error}`);
+  if (exitCode) {
+    throw new Error(`subprocess error exit ${exitCode}, ${error}`);
   }
   return data;
 }
