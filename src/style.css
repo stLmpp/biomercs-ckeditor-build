@@ -103,6 +103,8 @@
   /* -- Overrides the default colors used by the ckeditor5-link package. ---------------------- */
 
   --ck-color-link-default: hsl(190, 100%, 75%);
+
+  --ck-z-modal: 9999;
 }
 
 /* TODO better styles, maybe move this to the main project */

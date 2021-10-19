@@ -38,6 +38,9 @@ module.exports = {
             // Preserve CKEditor 5 license comments.
             comments: /^!/,
           },
+          mangle: {
+            keep_classnames: true,
+          },
         },
         extractComments: false,
       }),
