@@ -1,1 +1,1 @@
-# CKEditor 5 Custom build for Biomercs
+CKEditor 5 Custom build for Biomercs
